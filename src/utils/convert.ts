@@ -1,8 +1,7 @@
-const makeBoldWord = (word: string) => {
-    // detect odd even word to determine size
-    const sizeBold = word.length % 2 === 0 ? 1/2 : 2/3;
+const makeBoldWord = (word: string, size: number) => {
     // slicing word
-    const wordSlice = word.slice(0, Math.floor(word.length * sizeBold));
+    const sizeBold = size / 5
+    const wordSlice = word.slice(0, Math.round(word.length * sizeBold));
 
     const lengthWordSlice = wordSlice.length;
     const boldChar = word.substr(0, lengthWordSlice);
@@ -11,7 +10,7 @@ const makeBoldWord = (word: string) => {
     return `<b>${boldChar}</b>${regularChar}`;
 };
 
-export const convert = (originalText: string) => {
+export const convert = (originalText: string, size: number) => {
     const newText: Array<any> = [];
 
     const splitOriginalText = originalText.split(" ");
@@ -27,15 +26,15 @@ export const convert = (originalText: string) => {
             newWord = words.map((i) => {
                 // word without newline character
                 if (i.length > 0) {
-                    return makeBoldWord(i);
+                    return makeBoldWord(i, size);
                 } else {
                     return "<br /><br />";
                 }
             });
         } else {
-            newWord = makeBoldWord(word);
+            newWord = makeBoldWord(word, size);
         }
-        
+
         newText.push(newWord);
     });
 
