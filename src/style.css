@@ -1,0 +1,41 @@
+/* ./src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background-color-primary: #ebebeb;
+  --background-color-secondary: #fafafa;
+  --accent-color: #cacaca;
+  --text-primary-color: #222;
+  --element-size: 4rem;
+}
+
+:root.dark-theme {
+  --background-color-primary: #1e1e1e;
+  --background-color-secondary: #2d2d30;
+  --accent-color: #3f3f3f;
+  --text-primary-color: #ddd;
+}
+
+.header-center {
+  background-color: var(--background-color-primary);
+}
+
+.container-center {
+  background-color: var(--background-color-primary);
+  display: flex;
+  justify-content: center;
+}
+
+.card-content {
+  height: 600px;
+  border: 1px solid var(--accent-color);
+  border-radius: 4px;
+  background-color: var(--background-color-secondary);
+}
+
+.text-color {
+  color: var(--text-primary-color);
+  outline:none
+}
