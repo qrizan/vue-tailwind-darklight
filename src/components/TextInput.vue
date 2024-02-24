@@ -34,7 +34,6 @@
 <script lang="ts">
 
 import { defineComponent } from 'vue';
-import sanitizeHtml from 'sanitize-html';
 import { convert } from '../utils/convert.ts'
 
 export default defineComponent({
@@ -48,9 +47,7 @@ export default defineComponent({
     },
     methods: {
         storeText() : void{
-            this.textConverted = sanitizeHtml(convert(this.content), {
-                allowedTags: ['b', 'br'],
-            });
+            this.textConverted = convert(this.content)
 
             this.$emit('convertedText', this.textConverted )
         },
